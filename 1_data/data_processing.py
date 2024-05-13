@@ -1,4 +1,8 @@
 import pandas as pd
+import joblib
+from sklearn.preprocessing import StandardScaler, LabelEncoder
+from sklearn.model_selection import train_test_split
+
 
 # Load in the dataset
 spotify_data = pd.read_csv('../1_data/raw/dataset.csv', index_col=0)
@@ -80,4 +84,42 @@ selected_spotify_data_filtered = pd.concat([selected_spotify_data[selected_spoti
 
 # Save the selected data to a CSV file
 selected_spotify_data.to_csv('../1_data/derived/selected_spotify_data.csv')
+
+# Split data into features (X) and target variable (y)
+X = selected_spotify_data.drop(columns=['music_category', 'track_genre']).to_numpy()
+y = selected_spotify_data['music_category']
+
+# Encode the categorical target variable y
+label_encoder = LabelEncoder()
+y_encoded = label_encoder.fit_transform(y)
+
+# Create a StandardScaler instance
+scaler = StandardScaler(with_mean=True)
+
+# Split data into training testing datasets
+X_train, X_test, y_train, y_test = train_test_split(X, y_encoded, test_size=0.15, random_state=100)
+
+# Fit and transform train data
+X_train_normalised = scaler.fit_transform(X_train)
+
+# Transform test data using scalar trained on train data
+X_test_normalised = scaler.transform(X_test)
+
+# Save X_train_normalised to CSV
+pd.DataFrame(X_train_normalised).to_csv('../1_data/derived/X_train_normalised.csv', index=False)
+
+# Save X_test_normalised to CSV
+pd.DataFrame(X_test_normalised).to_csv('../1_data/derived/X_test_normalised.csv', index=False)
+
+# Save y_train to CSV
+pd.DataFrame(y_train).to_csv('../1_data/derived/y_train.csv', index=False, header=['track_genre_encoded'])
+
+# Save y_test to CSV
+pd.DataFrame(y_test).to_csv('../1_data/derived/y_test.csv', index=False, header=['track_genre_encoded'])
+
+# Save the scaler object
+joblib.dump(scaler, '../1_data/derived/scaler_values.joblib')
+
+# Save the LabelEncoder object
+joblib.dump(label_encoder, '../1_data/derived/label_encoder.joblib')
 
