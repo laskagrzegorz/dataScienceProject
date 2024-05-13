@@ -103,7 +103,7 @@ def plot_accuracy_values(accuracy_values, best_ccp_alpha, best_accuracy):
     plt.xlabel(r'Complexity parameter $\alpha$ used for Minimal Cost-Complexity Pruning')
     plt.xscale('log')
     plt.ylabel('Average Accuracy')
-    plt.title('Cross-Validation Accuracy for different KNN Classifiers', fontweight='bold')
+    plt.title('Cross-Validation Accuracy for different Decision Tree Classifiers', fontweight='bold')
 
     # Save the plot as an image file with high resolution (300 dpi)
     plt.savefig("Decision_Tree_classifier_hyperparameter_tuning_plot.png", dpi=300, bbox_inches='tight')
