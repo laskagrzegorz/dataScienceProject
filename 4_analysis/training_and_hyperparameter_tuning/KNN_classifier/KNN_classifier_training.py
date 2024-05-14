@@ -200,7 +200,7 @@ best_model_knn = KNeighborsClassifier(n_neighbors=max_accuracy_k, weights=max_ac
 best_model_knn.fit(X_train, y_train)
 
 # Save the model
-with open("../../../3_tests/best_model_knn.pkl", "wb") as f:
+with open("best_model_knn.pkl", "wb") as f:
     pickle.dump(best_model_knn, f)
 
 
