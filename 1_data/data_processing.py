@@ -2,7 +2,16 @@ import pandas as pd
 import joblib
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 from sklearn.model_selection import train_test_split
+import pickle
 
+# =======================================================================================
+# Data pre-processing for training later models. I select features of interest,
+# divide genres into categories, standardise the features and encode music_category
+# =======================================================================================
+
+# -------------------------------------------------------------------------------
+# Load and select features of interest
+# -------------------------------------------------------------------------------
 
 # Load in the dataset
 spotify_data = pd.read_csv('../1_data/raw/dataset.csv', index_col=0)
@@ -82,6 +91,10 @@ other_category_samples = selected_spotify_data[selected_spotify_data['music_cate
 # Concatenate the filtered 'Other' samples with the rest of the data
 selected_spotify_data_filtered = pd.concat([selected_spotify_data[selected_spotify_data['music_category'] != 'Other'], other_category_samples])
 
+# -------------------------------------------------------------------------------
+# Standardise features, encode music_category and save all the files
+# -------------------------------------------------------------------------------
+
 # Save the selected data to a CSV file
 selected_spotify_data.to_csv('../1_data/derived/selected_spotify_data.csv')
 
@@ -122,4 +135,24 @@ joblib.dump(scaler, '../1_data/derived/scaler_values.joblib')
 
 # Save the LabelEncoder object
 joblib.dump(label_encoder, '../1_data/derived/label_encoder.joblib')
+
+# Save scaler object using pickle
+with open('../1_data/derived/scaler_values.pkl', 'wb') as f:
+    pickle.dump(scaler, f)
+
+# Save label_encoder object using pickle
+with open('../1_data/derived/label_encoder.pkl', 'wb') as f:
+    pickle.dump(label_encoder, f)
+
+# -------------------------------------------------------------------------------
+# music_category Encoding
+# -------------------------------------------------------------------------------
+
+# Encoded label: 0, Original label: Electronic Dance Music
+# Encoded label: 1, Original label: Funk and Disco
+# Encoded label: 2, Original label: Hip-Hop and R&B
+# Encoded label: 3, Original label: Latin & Reggae/Dancehall
+# Encoded label: 4, Original label: Other
+# Encoded label: 5, Original label: Pop
+# Encoded label: 6, Original label: Rock
 

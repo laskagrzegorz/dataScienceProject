@@ -6,10 +6,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pickle
 
+# =======================================================================================
+# Hyper-tuning and training of KNN classifier using 5 fold cross-validation for odd k's in
+# range 1 to 39 and for different  weights and distance functions
+# =======================================================================================
+
 # Load in the training dataset
 X_train = pd.read_csv('../../1_data/derived/X_train_normalised.csv').to_numpy()
 y_train = pd.read_csv('../../1_data/derived/y_train.csv').to_numpy().ravel()
-
 
 def knn_cross_validation(data_x, data_y, ks=np.arange(1, 40)[::2], ps=[1, 2], weights=['uniform', 'distance']):
     """
@@ -75,6 +79,10 @@ def knn_cross_validation(data_x, data_y, ks=np.arange(1, 40)[::2], ps=[1, 2], we
 
     return mean_cv_scores_dict
 
+
+# -------------------------------------------------------------------------------
+# Perform cross-validation
+# -------------------------------------------------------------------------------
 
 # Fit all models
 ks = np.arange(1, 40)[::2]
@@ -173,9 +181,18 @@ def plot_mean_cv_scores_list(mean_cv_scores_dicts, titles, ks):
     return max_accuracy_p, max_accuracy_weight, max_accuracy_k
 
 
+# -------------------------------------------------------------------------------
+# Make a plot showing results of cross-validation
+# -------------------------------------------------------------------------------
+
 # Make the hyper-tuning plot
 titles = ['Cross-Validation Accuracy for different KNN Classifiers']
 max_accuracy_p, max_accuracy_weight, max_accuracy_k = plot_mean_cv_scores_list([mean_cv_scores_dict], titles, ks)
+
+
+# -------------------------------------------------------------------------------
+# Fit and save best model
+# -------------------------------------------------------------------------------
 
 # Fit the best model on whole data
 best_model_knn = KNeighborsClassifier(n_neighbors=max_accuracy_k, weights=max_accuracy_weight,

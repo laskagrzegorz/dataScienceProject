@@ -6,6 +6,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import pickle
 
+# =======================================================================================
+# Hyper-tuning and training of Decision Tree classifier using 5 fold cross-validation for
+# different complexity parameter alpha on log scale.
+# =======================================================================================
 
 # Load in the training dataset
 X_train = pd.read_csv('../../1_data/derived/X_train_normalised.csv').to_numpy()
@@ -67,6 +71,10 @@ def tune_decision_tree_ccp_alpha_classifier(X_train_data, y_train_data, ccp_alph
     return best_ccp_alpha, best_accuracy, accuracy_values
 
 
+# -------------------------------------------------------------------------------
+# Perform cross-validation
+# -------------------------------------------------------------------------------
+
 # Define lists of values for hyperparameters
 ccp_alpha_values = np.logspace(np.log10(0.000001), np.log10(0.1), 200)
 
@@ -111,9 +119,16 @@ def plot_accuracy_values(accuracy_values, best_ccp_alpha, best_accuracy):
     # Show plot
     plt.show()
 
+# -------------------------------------------------------------------------------
+# Make a plot showing results of cross-validation
+# -------------------------------------------------------------------------------
 
-# Make the hyper-tuning plot
+
 plot_accuracy_values(accuracy_values, best_ccp_alpha, best_accuracy)
+
+# -------------------------------------------------------------------------------
+# Fit and save best model
+# -------------------------------------------------------------------------------
 
 # Fit the best model on whole data
 best_tree_classifier = DecisionTreeClassifier(ccp_alpha=best_ccp_alpha, random_state=50)
