@@ -12,8 +12,8 @@ import pickle
 # =======================================================================================
 
 # Load in the training dataset
-X_train = pd.read_csv('../../1_data/derived/X_train_normalised.csv').to_numpy()
-y_train = pd.read_csv('../../1_data/derived/y_train.csv').to_numpy().ravel()
+X_train = pd.read_csv('../../../1_data/derived/X_train_normalised.csv').to_numpy()
+y_train = pd.read_csv('../../../1_data/derived/y_train.csv').to_numpy().ravel()
 
 def tune_decision_tree_ccp_alpha_classifier(X_train_data, y_train_data, ccp_alpha_values, n_splits=5):
     """

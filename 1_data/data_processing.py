@@ -14,7 +14,7 @@ import pickle
 # -------------------------------------------------------------------------------
 
 # Load in the dataset
-spotify_data = pd.read_csv('../1_data/raw/dataset.csv', index_col=0)
+spotify_data = pd.read_csv('raw/spotify_dataset.csv', index_col=0)
 
 # Select columns of interest
 selected_spotify_data = spotify_data[['danceability', 'energy', 'loudness',

@@ -23,3 +23,8 @@ separated into train and test with corresponding y_train.csv and y_train.csv whi
 - Encoded label: 4, Original label: Other
 - Encoded label: 5, Original label: Pop
 - Encoded label: 6, Original label: Rock
+
+It also contains pickle files: scaler_values.pkl which contain function to transform the new data 
+before passing it through the models and label_encoder.pkl to read the encoded output of the models.
+
+## 1_data/

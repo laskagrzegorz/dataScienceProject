@@ -12,8 +12,8 @@ import pickle
 # =======================================================================================
 
 # Load in the training dataset
-X_train = pd.read_csv('../../1_data/derived/X_train_normalised.csv').to_numpy()
-y_train = pd.read_csv('../../1_data/derived/y_train.csv').to_numpy().ravel()
+X_train = pd.read_csv('../../../1_data/derived/X_train_normalised.csv').to_numpy()
+y_train = pd.read_csv('../../../1_data/derived/y_train.csv').to_numpy().ravel()
 
 def knn_cross_validation(data_x, data_y, ks=np.arange(1, 40)[::2], ps=[1, 2], weights=['uniform', 'distance']):
     """
