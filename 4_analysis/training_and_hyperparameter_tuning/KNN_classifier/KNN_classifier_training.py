@@ -144,7 +144,7 @@ def plot_mean_cv_scores_list(mean_cv_scores_dicts, titles, ks):
                 if weight == "distance":
                     axs[i].plot(ks, mean_cv_scores, label=f'Distance-weighted KNN (p={p})')
                 else:
-                    axs[i].plot(ks, mean_cv_scores, label=f'Uniform KNN (p={p})')
+                    axs[i].plot(ks, mean_cv_scores, label=f'Majority-voting KNN (p={p})')
 
         # Plot vertical line at the k value corresponding to the highest accuracy
         axs[i].axvline(x=max_accuracy_k, color='black', linestyle='--')
@@ -159,7 +159,7 @@ def plot_mean_cv_scores_list(mean_cv_scores_dicts, titles, ks):
                         verticalalignment='bottom', horizontalalignment='right', color='black')
         else:
             axs[i].text(max_accuracy_k + 0.1, max_accuracy * 0.95,
-                        f'Highest Accuracy: {max_accuracy:.5f} \nUniform KNN (p={max_accuracy_p}), K={max_accuracy_k}',
+                        f'Highest Accuracy: {max_accuracy:.5f} \nMajority-voting KNN (p={max_accuracy_p}), K={max_accuracy_k}',
                         verticalalignment='bottom', horizontalalignment='right', color='black')
 
         # Set title, labels, legend, and grid for the subplot
@@ -200,7 +200,7 @@ best_model_knn = KNeighborsClassifier(n_neighbors=max_accuracy_k, weights=max_ac
 best_model_knn.fit(X_train, y_train)
 
 # Save the model
-with open("best_model_knn.pkl", "wb") as f:
+with open("../../../3_tests/best_model_knn.pkl", "wb") as f:
     pickle.dump(best_model_knn, f)
 
 

@@ -1,0 +1,4 @@
+Model,Accuracy
+Decision Tree,0.5474
+KNN,0.5984
+MLP,0.4901

@@ -135,7 +135,7 @@ best_tree_classifier = DecisionTreeClassifier(ccp_alpha=best_ccp_alpha, random_s
 best_tree_classifier.fit(X_train, y_train)
 
 # Save the model
-with open("best_model_decision_tree.pkl", "wb") as f:
+with open("../../../3_tests/best_model_decision_tree.pkl", "wb") as f:
     pickle.dump(best_tree_classifier, f)
 
 

@@ -130,12 +130,6 @@ pd.DataFrame(y_train).to_csv('../1_data/derived/y_train.csv', index=False, heade
 # Save y_test to CSV
 pd.DataFrame(y_test).to_csv('../1_data/derived/y_test.csv', index=False, header=['track_genre_encoded'])
 
-# Save the scaler object
-joblib.dump(scaler, '../1_data/derived/scaler_values.joblib')
-
-# Save the LabelEncoder object
-joblib.dump(label_encoder, '../1_data/derived/label_encoder.joblib')
-
 # Save scaler object using pickle
 with open('../1_data/derived/scaler_values.pkl', 'wb') as f:
     pickle.dump(scaler, f)
