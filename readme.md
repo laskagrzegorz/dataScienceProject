@@ -36,7 +36,8 @@ This directory also contains `data_processing.py` file that contains all pre-pro
 
 ### 3_outputs/
 
- Stores the outputs of our analyses, such as model performance metrics, visualizations, and the final report. 
+ Stores the output of our analyses, the final report and its overleaf directory to reproduce the report. Additionally it contains
+python script showing for to properly import trained model and make a prediction based on new data introduced by user.
 
 ## Getting Started
 
@@ -50,7 +51,7 @@ To run the analysis, execute the main script located in the `2_analysis` directo
 
 ## Contributing
 
-Contributions are welcome Please feel free to submit pull requests or open issues if you encounter any problems or have suggestions for improvement.
+Contributions are welcome. Please feel free to submit pull requests or open issues if you encounter any problems or have suggestions for improvement.
 
 ## License
 
