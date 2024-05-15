@@ -9,7 +9,7 @@ platforms, including potential CTOs.
 
 Our project leverages the Spotify tracks dataset available on HuggingFace, which provides rich metadata for thousands of songs across different genres. 
 We have processed and encoded this data to facilitate machine learning model training and evaluation.  The link to the website is: 
-https://huggingface.co/datasets/maharshipandya/spotify-tracks-dataset.
+https://huggingface.co/datasets/maharshipandya/spotify-tracks-dataset. I will use danceability, energy, loudness, acousticness, instrumentalness, liveness, valence and tempo as my predictor features.
 
 ## Repository Structure
 
