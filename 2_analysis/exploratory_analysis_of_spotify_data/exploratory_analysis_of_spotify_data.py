@@ -2,9 +2,19 @@ import matplotlib.pyplot as plt
 import math
 import pandas as pd
 
+# =======================================================================================
+# Perform basic exploratory analysis
+# =======================================================================================
+
+# -------------------------------------------------------------------------------
+# Load test dataset
+# -------------------------------------------------------------------------------
 
 selected_spotify_data = pd.read_csv('../../1_data/derived/selected_spotify_data.csv')
 
+# -------------------------------------------------------------------------------
+# Plot histogram of each feature
+# -------------------------------------------------------------------------------
 
 # Select all columns except the last two (genre, music category)
 columns_to_include = selected_spotify_data.iloc[:, 0:-2]
@@ -13,7 +23,7 @@ columns_to_include = selected_spotify_data.iloc[:, 0:-2]
 num_columns = columns_to_include.shape[1]
 num_rows = math.ceil(num_columns / 3)
 
-# Create a 4x3 grid of subplots
+# Create a ...x3 grid of subplots
 fig, axes = plt.subplots(num_rows, 3, figsize=(16, 10))
 
 # Flatten the axes array to facilitate iteration
@@ -41,6 +51,9 @@ plt.savefig("histograms_of_features.png", dpi=300, bbox_inches='tight')
 # Display the plot
 plt.show()
 
+# -------------------------------------------------------------------------------
+# Plot music categories counts bar plot
+# -------------------------------------------------------------------------------
 
 # Count the frequencies of each category
 category_counts = selected_spotify_data['music_category'].value_counts()
@@ -50,7 +63,7 @@ plt.figure(figsize=(12, 8))
 category_counts.plot(kind='bar', color='skyblue', edgecolor='black')
 plt.xlabel('Music Category')
 plt.ylabel('Frequency')
-plt.xticks(rotation=30, ha='right')  # Rotate x-axis labels for better readability
+plt.xticks(rotation=30, ha='right')
 plt.tight_layout()
 
 # Save the plot as an image file with high resolution (300 dpi)
