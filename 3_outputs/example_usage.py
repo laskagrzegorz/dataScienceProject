@@ -10,7 +10,6 @@ import numpy as np
 # Load label encoder, scaler and model of choosing
 # -------------------------------------------------------------------------------
 
-
 # Read label_encoder object
 with open('../../1_data/derived/label_encoder.pkl', 'rb') as f:
     label_encoder = pickle.load(f)
