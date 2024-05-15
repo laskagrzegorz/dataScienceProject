@@ -28,8 +28,35 @@ It also includes pickle files for data transformation (`scaler_values.pkl`) and 
 
 This directory also contains `data_processing.py` file that contains all pre-processing.
 
-### 2_analysis
+### 2_analysis/
 
  Holds the Python scripts where we implement and evaluate various classification models and we do basic exploratory analysis.
  Each directory in `training_and_hyperparameter_tuning` directory contains the experimentation script, best model saved 
  with pickle and a plot representing the hyperparameter tuning.
+
+### 2_outputs/
+
+ Stores the outputs of our analyses, such as model performance metrics, visualizations, and the final report. 
+
+## Getting Started
+
+### Prerequisites
+
+Ensure you have Python installed on your system. You will also need to install the required libraries listed in `requirements.txt`.
+
+### Usage
+
+To run the analysis, execute the main script located in the `2_analysis` directory. Follow the instructions within the script or accompanying documentation for detailed steps.
+
+## Contributing
+
+Contributions are welcome Please feel free to submit pull requests or open issues if you encounter any problems or have suggestions for improvement.
+
+## License
+
+This project is licensed under the MIT License.
+
+## Contact
+
+If you have any questions or need further assistance, please contact us via email or through the GitHub issue tracker.
+
