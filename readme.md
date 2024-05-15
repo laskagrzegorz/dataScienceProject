@@ -34,7 +34,7 @@ This directory also contains `data_processing.py` file that contains all pre-pro
  Each directory in `training_and_hyperparameter_tuning` directory contains the experimentation script, best model saved 
  with pickle and a plot representing the hyperparameter tuning.
 
-### 2_outputs/
+### 3_outputs/
 
  Stores the outputs of our analyses, such as model performance metrics, visualizations, and the final report. 
 
