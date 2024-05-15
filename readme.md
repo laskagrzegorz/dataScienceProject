@@ -26,4 +26,10 @@ It also includes pickle files for data transformation (`scaler_values.pkl`) and 
 - Encoded label: 5, Original label: Pop
 - Encoded label: 6, Original label: Rock
 
-This directory also contains data_processing.py file that contains all pre-processing.
+This directory also contains `data_processing.py` file that contains all pre-processing.
+
+### 2_analysis
+
+ Holds the Python scripts where we implement and evaluate various classification models and we do basic exploratory analysis.
+ Each directory in `training_and_hyperparameter_tuning` directory contains the experimentation script, best model saved 
+ with pickle and a plot representing the hyperparameter tuning.
