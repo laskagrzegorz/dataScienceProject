@@ -2,7 +2,7 @@
 
 Welcome to my data science project focused on genre classification using Spotify data.
 This project aims to explore various classification models, fine-tune their hyperparameters, and present a comprehensive 
-analysis of their performance. Our goal is to provide insights that could be valuable for stakeholders interested in music 
+analysis of their performance. Our goal is to provide insights that could be valuable for stakeholders with significant statistical background with interested in music 
 platforms, including potential CTOs.
 
 **Data sources**
